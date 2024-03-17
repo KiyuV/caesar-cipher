@@ -1,27 +1,25 @@
 def caesar_cipher(string, num)
-  split_string = string.split("")
-  cipher = split_string.map do |char|
+  cipher = string.split("").map do |char|
     char_value = char.ord
     shifted_char_value = char_value + num
-    # Checks if current char is capitialized
-    if char_value >= 65 && char_value <= 90
-      # wrap from A
-      if shifted_char_value > 90
-        (shifted_char_value - 90 + 64).chr
-      # wrap from Z
-      elsif shifted_char_value < 65
-        (91 - (65 - shifted_char_value)).chr
-      # within normal range
-      else
-        shifted_char_value.chr
+    # Checks if current char is a letter
+    if char_value >= 97 && char_value <= 122 || char_value >= 65 && char_value <= 90
+  
+      char_value >= 65 && char_value <= 90 ? capital = true : capital = false
+      # converting the capital's ordinate number to the matching lower case
+      if capital
+        char_value = char.downcase.ord
+        shifted_char_value = char_value + num
       end
-    elsif char_value >= 97 && char_value <= 122
+
       # wrap from a
       if shifted_char_value > 122
-        (shifted_char_value - 122 + 96).chr
+        letter = (shifted_char_value - 122 + 96).chr
+        capital ? letter.upcase : letter
       # wrap from z
       elsif shifted_char_value < 97
-        (123 - (97 - shifted_char_value)).chr
+        letter = (123 - (97 - shifted_char_value)).chr
+        capital ? letter.upcase : letter
       # within normal range
       else
         shifted_char_value.chr
