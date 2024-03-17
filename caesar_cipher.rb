@@ -34,7 +34,7 @@ def caesar_cipher(string, num)
   p cipher.join
 end
 
-puts "Please enter a your message to be ciphered"
+puts "Please enter your message to be ciphered"
 input_string = gets.chomp
 puts "Please enter a shift factor"
 input_shift = gets.chomp.to_i
