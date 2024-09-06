@@ -1,7 +1,8 @@
+# frozen_string_literal: true
+
 require_relative '../lib/caesar_cipher'
 
 describe CaesarCipher do
-
   describe '.caesar_cipher' do
     context 'when the given shift is small' do
       string = 'Joe discovered that traffic cones make excellent megaphones'
